@@ -1,3 +1,5 @@
+
+
 package com.example.finalproject;
 
 import javafx.application.Application;
@@ -115,6 +117,7 @@ public class HelloApplication extends Application {
                             return;
                         }
 
+
                         if (now - lastTick > 1000000000 / speed) {
                             lastTick = now;
                             tick(gc);
@@ -224,73 +227,32 @@ public class HelloApplication extends Application {
             }
         }
 
-//        // fill
-//        // background
-//        gc.setFill(Color.BLACK);
-//        gc.fillRect(0, 0, width * cornersize, height * cornersize);
-//
-//        // score
-//        gc.setFill(Color.WHITE);
-//        gc.setFont(new Font("", 30));
-//        gc.fillText("Score: " + (speed - 6), 10, 30);
-//
-//        // random foodcolor
-//        Color cc = Color.WHITE;
-//
-//        switch (foodcolor) {
-//            case 0:
-//                cc = Color.PURPLE;
-//                break;
-//            case 1:
-//                cc = Color.LIGHTBLUE;
-//                break;
-//            case 2:
-//                cc = Color.YELLOW;
-//                break;
-//            case 3:
-//                cc = Color.PINK;
-//                break;
-//            case 4:
-//                cc = Color.ORANGE;
-//                break;
-//        }
-//        gc.setFill(cc);
-//        gc.fillOval(foodX * cornersize, foodY * cornersize, cornersize, cornersize);
-//
-//        // snake
-//        for (Corner c : snake) {
-//            gc.setFill(Color.LIGHTGREEN);
-//            gc.fillRect(c.x * cornersize, c.y * cornersize, cornersize - 1, cornersize - 1);
-//            gc.setFill(Color.GREEN);
-//            gc.fillRect(c.x * cornersize, c.y * cornersize, cornersize - 2, cornersize - 2);
-//
-//        }
 
         // fill
         // background (light grey as base)
-        gc.setFill(Color.web("#E0E0E0")); // Açık gri arka plan
+        gc.setFill(Color.web("#E0E0E0")); // Light grey background
         gc.fillRect(0, 0, width * cornersize, height * cornersize);
 
         // score text
-        gc.setFill(Color.web("#A76545")); // Kahverengi skor metni
+        gc.setFill(Color.web("#A76545")); // Brown score text
         gc.setFont(new Font("", 30));
         gc.fillText("Score: " + (speed - 6), 10, 30);
 
         // food (random pastel tone from the palette)
         Color[] foodColors = {
-                Color.web("#FFA55D"),  // Turuncu
-                Color.web("#FFDF88"),  // Sarı
-                Color.web("#ACC572")   // Açık yeşil
+                Color.web("#FFA55D"),  // Orange
+                Color.web("#FFDF88"),  // Yellow
+                Color.web("#ACC572")   // Open gereen
         };
         Color cc = foodColors[foodcolor % foodColors.length];
         gc.setFill(cc);
         gc.fillOval(foodX * cornersize, foodY * cornersize, cornersize, cornersize);
 
-        // snake (gövde turuncu, kenarlık kahverengi gibi)
+        // snake (body orange, like a brown border)
         for (Corner c : snake) {
-            gc.setFill(Color.web("#FFA55D")); // Turuncu yılan gövdesi
+            gc.setFill(Color.web("#FFA55D")); // Orange snake body
             gc.fillRect(c.x * cornersize, c.y * cornersize, cornersize - 1, cornersize - 1);
-            gc.setFill(Color.web("#A76545")); // Kenar - toprak kahverengi
+            gc.setFill(Color.web("#A76545")); // Edge-soil brown
             gc.fillRect(c.x * cornersize, c.y * cornersize, cornersize - 2, cornersize - 2);
         }
 
